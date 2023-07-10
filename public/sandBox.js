@@ -1,14 +1,14 @@
 "use strict";
-// const character = 'mario';
-// console.log(character);
-// const inputs = document.querySelectorAll('input');
-// inputs.forEach(input => {
-//   console.log(input);
-// });
-// const circ = (diameter:number) => {
-//   return diameter*Math.PI;
-// }
-// console.log(circ(5.6));
+const characters = 'mario';
+console.log(characters);
+const inputs = document.querySelectorAll('input');
+inputs.forEach(input => {
+    console.log(input);
+});
+const circ = (diameter) => {
+    return diameter * Math.PI;
+};
+console.log(`Circ = ${circ(5.6)}`);
 //********************* */
 //arrays
 let fruits = ['apple', 'banana', 'cherry'];
@@ -167,3 +167,43 @@ let logDetailC;
 logDetailC = (person) => {
     console.log(`${person.name} is ${person.age} years`);
 };
+//*************** */
+// DOM interaction
+const anchor = document.querySelector('a');
+// to avoid any null error in the anchor constant use exclamation at the querySelector
+console.log(anchor.href);
+// to avoid any null error in the anchor constant use the following
+if (anchor) {
+    console.log(anchor.href);
+}
+const form = document.querySelector(".new-item-form");
+console.log(form.children);
+console.log(form.children[2]);
+const form1 = document.querySelector(".new-item-form");
+console.log(form1.children);
+console.log(form1.children[0]);
+// inputs
+const type = document.querySelector('#type');
+const tofrom = document.querySelector('#tofrom');
+const details = document.querySelector('#details');
+const amount = document.querySelector('#amount');
+//******** */
+// classes
+class Invoice {
+    constructor(c, d, a) {
+        this.client = c;
+        this.details = d;
+        this.amount = a;
+    }
+    format() {
+        return `${this.client} owes £${this.details} for ${this.amount}`;
+    }
+}
+const invOne = new Invoice('marie', 'towards fence building', 400);
+const invTwo = new Invoice('tom', 'towards coffee morning', 50);
+console.log(invTwo, invOne);
+// we can add our invoices to an array as following;
+let invoices = [];
+invoices.push(invOne);
+invoices.push(invTwo);
+console.table(invoices);
